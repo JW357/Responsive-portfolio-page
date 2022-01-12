@@ -18,13 +18,22 @@ function Nav() {
   const classes = useStyles();
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down('mobile'));
-  const [isMobileMenu, setIsMobileMenu] = useState(true);
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
+
+  const handleMenuDisplay = () => {
+    if (isMobileMenu && mobile) {
+      return 'flex';
+    } if (!mobile) {
+      return 'flex';
+    }
+    return 'none';
+  };
 
   return (
 
     <Toolbar className={`${mobile ? classes.mobileHeaderBar : classes.headerBar}`} style={{ height: `${isMobileMenu && mobile ? '100vh' : '100%'}`, position: `${isMobileMenu && mobile ? 'fixed' : 'sticky'}` }}>
       <Box className={`${mobile ? classes.mobileNameAndNav : classes.nameAndNav}`}>
-        <ul className={`${mobile ? classes.mobileNavigationList : classes.navigationList}`} style={{ display: `${isMobileMenu ? 'flex' : 'none'}` }}>
+        <ul className={`${mobile ? classes.mobileNavigationList : classes.navigationList}`} style={{ display: `${handleMenuDisplay()}` }}>
           <Link to="/home" onClick={() => (mobile ? setIsMobileMenu(false) : null)}>
             <li className={classes.navigation} style={{ textTransform: 'capitalize' }}>Work</li>
           </Link>
@@ -45,7 +54,7 @@ function Nav() {
           </Button>
         </Box>
       </Box>
-      <Box className={classes.iconBox} style={{ display: `${isMobileMenu ? 'flex' : 'none'}` }}>
+      <Box className={classes.iconBox} style={{ display: `${handleMenuDisplay()}` }}>
         <LinkTo href="#"><LinkedInIcon style={{ color: 'white' }} fontSize="large" href="#" /></LinkTo>
         <LinkTo href="#"><InstagramIcon style={{ color: 'white' }} fontSize="large" href="#" /></LinkTo>
         <LinkTo href="#"><FacebookIcon style={{ color: 'white' }} fontSize="large" href="#" /></LinkTo>
