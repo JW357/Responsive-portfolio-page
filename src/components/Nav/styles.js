@@ -3,11 +3,12 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme) => ({
   headerBar: {
     fontFamily: theme.typography.fontFamily,
-    background: '#fa2f48',
+    background: theme.palette.secondary.main,
     display: 'flex',
     justifyContent: 'space-between',
     position: 'sticky',
     top: '0',
+    zIndex: '3',
     '& p': {
       color: 'white',
       fontWeight: '600',
@@ -47,14 +48,14 @@ const useStyles = makeStyles((theme) => ({
   },
   nameAndNav: {
     display: 'flex',
-    width: '52vw',
+    width: '100%',
     justifyContent: 'space-between',
   },
   nameBox: {
     display: 'flex',
+    width: '100%',
     alignItems: 'center',
-    width: '40vw',
-    justifyContent: 'right',
+    justifyContent: 'center',
   },
 
   // mobile styles
@@ -85,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     left: '0',
     zIndex: '3',
     fontFamily: theme.typography.fontFamily,
-    background: '#fa2f48',
+    background: theme.palette.secondary.main,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
