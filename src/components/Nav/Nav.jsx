@@ -41,7 +41,7 @@ function Nav() {
             <li className={classes.navigation} style={{ textTransform: 'capitalize' }}>About</li>
           </Link>
           <Link to="/contact" onClick={() => (mobile ? setIsMobileMenu(false) : null)}>
-            <li className={classes.navigation} style={{ textTransform: 'capitalize' }} label="Contact">Contact</li>
+            <li className={classes.navigation} style={{ textTransform: 'capitalize' }}>Contact</li>
           </Link>
         </ul>
         <Box className={`${mobile ? classes.mobileMenu : classes.nameBox}`}>

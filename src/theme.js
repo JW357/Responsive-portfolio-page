@@ -11,9 +11,15 @@ const theme = createTheme({
     values: {
       mobileSmall: 350,
       mobile: 820,
-      md: 900,
-      lg: 1200,
+      small: 1300,
+      smallAverage: 1300,
+      average: 1700,
       xl: 1536,
+    },
+  },
+  palette: {
+    secondary: {
+      main: '#fa2f48',
     },
   },
 });
