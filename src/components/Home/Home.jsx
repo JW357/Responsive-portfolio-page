@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, Box, Link as LinkTo } from '@mui/material';
+import {
+  Typography, Box,
+} from '@mui/material';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import { useTheme } from '@mui/material/styles';
@@ -31,17 +33,19 @@ function Home() {
     return 'h5';
   };
 
-  return (
-    <Box>
-      <Box className={classes.headerBox}>
-        <Typography style={{
-          color: 'white', fontWeight: '600', fontSize: '1.5rem', textAlign: 'center',
-        }}
-        >
-          John Doe
-          {' '}
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        </Typography>
+  const goToGallerySection = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: mobile ? 779 : 751,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <Box id="home">
+      <Box className={classes.headerBox}>
         <Typography
           className={classes.headerText}
           variant={checkWidth()}
@@ -52,21 +56,28 @@ function Home() {
           <br />
           Graphic Designer
         </Typography>
-        <Box className={classes.scrollButtonBox}>
+        <Box className={classes.scrollButtonBox} style={{ scrollSnapAlign: 'start' }}>
           <Typography style={{ color: 'white', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Check out my Work!</Typography>
-          <LinkTo href="#gallery">
-            <ArrowCircleDownIcon style={{ color: 'white', fontSize: '5rem' }} />
-          </LinkTo>
+          <ArrowCircleDownIcon
+            style={{
+              color: 'white', fontSize: '5rem',
+            }}
+            onClick={goToGallerySection}
+            duration={500}
+          />
         </Box>
       </Box>
-      <Box style={{ position: 'relative' }}>
+      <Box id="gallery">
+
         <ArrowCircleUpIcon
           className={classes.moveUpIcon}
-          style={{ display: `${mobile ? 'none' : 'flex'}`, fontSize: '4rem' }}
+          style={{ display: `${mobile ? 'none' : 'flex'}`, fontSize: '4rem', zIndex: '6' }}
           color="secondary"
           fontSize="large"
+          onClick={scrollToTop}
         />
-        <Box id="gallery" className={mobile ? classes.mobileImagesBox : classes.imagesBox}>
+
+        <Box className={mobile ? classes.mobileImagesBox : classes.imagesBox}>
           <Box>
             <Link to="/Image1">
               <img className={classes.image} src={image1} alt="something" />

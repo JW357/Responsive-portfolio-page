@@ -37,14 +37,14 @@ const useStyles = makeStyles((theme) => ({
     width: '85%',
     margin: '4rem auto 2rem auto',
     '& div': {
-      background: theme.palette.secondary.main,
-      margin: '1px',
+      margin: '2px',
       width: '48%',
       height: '500px',
       overflow: 'hidden',
       position: 'relative',
     },
     '& div:hover': {
+      background: theme.palette.secondary.main,
       overflow: 'hidden',
       '& img': {
         transform: 'scale(1.2)',

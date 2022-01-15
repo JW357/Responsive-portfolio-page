@@ -52,10 +52,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   nameBox: {
-    display: 'flex',
+    display: 'block',
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'absolute',
+    left: '0',
+    textAlign: 'center',
+    top: '0.55rem',
+    zIndex: '-1',
   },
 
   // mobile styles
